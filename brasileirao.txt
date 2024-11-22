@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace BRASILEIRAO
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+             Dictionary<int, string> times = new Dictionary<int, string>
+             {
+                 { 1, "BotaFogo" },
+                 { 2, "Palmeiras" },
+                 { 3, "Fortaleza" },
+                 { 4, "Flamengo" },
+                 { 5, "Internacional" },
+                 { 6, "São Paulo" },
+                 { 7, "Cruzeiro" },
+                 { 8, "Bahia" },
+                 { 9, "Vasco da Gama" },
+                 { 10, "Atlético-MG" },
+                 { 11, "Corinthians" },
+                 { 12, "Gremio" },
+                 { 13, "Vitoria" },
+                 { 14, "Atletico-PR" },
+                 { 15, "Fluminenese" },
+                 { 16, "Criciuma" },
+                 { 17, "Juventude" },
+                 { 18, "Bragantino" },
+                 { 19, "Cuiabá" },
+                 { 20, "Atletico-GO" },
+             };
+            
+
+
+            int posicao;
+            bool entradaValida = false;
+
+            do
+            {
+
+
+                Console.WriteLine("\nDigite a Posição: ");
+                string entrada = Console.ReadLine();
+
+                if (int.TryParse(entrada, out posicao) && posicao > 0 && posicao <= 20)
+                {
+                    entradaValida = true;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada Invalida. Por favor, tente novamente:\n");
+                }
+            } while (!entradaValida);
+
+
+            
+            string nomeTime = times[posicao];
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"\nTime: {nomeTime}");
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            if (posicao <= 4)
+                Console.WriteLine("\nCopa Libertadores");
+            else if (posicao <= 6)
+                Console.WriteLine("\nQualificatorias Libertadores");
+            else if (posicao <= 12)
+                Console.WriteLine("\nCopa Sul-Americana");
+            else
+                Console.WriteLine("\nEssa pessoa é um idoso");
+
+            Console.ReadKey();
+
+
+        }
+        }
+    }
+
